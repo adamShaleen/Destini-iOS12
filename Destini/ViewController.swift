@@ -42,27 +42,21 @@ class ViewController: UIViewController {
         if storyIndex == 1 && sender.tag == 2 {
             storyIndex = 3
             updateUI(storyIndex)
-            topButton.isHidden = true
-            bottomButton.isHidden = true
-            restartButton.isHidden = false
+            hideAndShowButtons()
             return
         }
         
         if storyIndex == 2 && sender.tag == 1 {
             storyIndex = 5
             updateUI(storyIndex)
-            topButton.isHidden = true
-            bottomButton.isHidden = true
-            restartButton.isHidden = false
+            hideAndShowButtons()
             return
         }
         
         if storyIndex == 2 && sender.tag == 2 {
             storyIndex = 4
             updateUI(storyIndex)
-            topButton.isHidden = true
-            bottomButton.isHidden = true
-            restartButton.isHidden = false
+            hideAndShowButtons()
             return
         }
     }
@@ -71,6 +65,12 @@ class ViewController: UIViewController {
         storyTextView.text = stories.list[index].text
         topButton.setTitle(stories.list[index].answerA, for: .normal)
         bottomButton.setTitle(stories.list[index].answerB, for: .normal)
+    }
+    
+    func hideAndShowButtons() {
+        topButton.isHidden = true
+        bottomButton.isHidden = true
+        restartButton.isHidden = false
     }
     
     @IBAction func restartPressed(_ sender: UIButton) {
